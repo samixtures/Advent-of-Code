@@ -10,8 +10,25 @@ with open('data4.txt') as file:
         num1, num2, num3, num4 = None, None, None, None
         dashFound = False
         counter = 0
+        savedIndex = 0
+        newStart = 0
         for x in range(len(line)):
             if line[x] == "-" and counter == 0:
                 counter += 1
+                savedIndex = x
                 num1 = int(line[0:x])
-                print(num1)
+                print("num1 is", num1)
+            if line[x] == "," and counter == 1:
+                counter += 1
+                newStart = x+1
+                num2 = int(line[savedIndex+1:x])
+                print("num2 is", num2)
+            if line[x] == "-" and counter == 2:
+                counter += 1
+                savedIndex = x
+                num3 = int(line[newStart:x])
+                print("num3 is", num3)
+            if x == len(line)-1 and counter == 3:
+                counter += 1
+                num4 = int(line[savedIndex+1:x])
+                print("num4 is", num4)
