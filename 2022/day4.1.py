@@ -1,8 +1,8 @@
-# DAY 4 PART 1
+# DAY 4 PART 2
 
 # 33-62,26-62 range2 in range1 so True
 # 49-89,49-88 range2 in range1 so True
-# 2-4,3-92    False
+# 2-4,3-92    Since 3, and 4 are in range1 and range2, it's True
 # 7-98,7-98   range1 in range 2 and vice versa so True
 total = 0
 with open('data4.1.txt') as file:
@@ -30,11 +30,19 @@ with open('data4.1.txt') as file:
                 # print("num3 is", num3)
             if x == len(line)-1 and counter == 3:
                 counter += 1
-                num4 = int(line[savedIndex+1:x])
+                num4 = int(line[savedIndex+1:x+1])
                 # print("num4 is", num4)
         print(num1, num2, num3, num4)
-        if num1 >= num3 and num2 <= num4:
+        if num1 >= num3 and num1 <= num4:
+            print("num1 is", num1)
             total += 1
-        elif num1 <= num3 and num2 >= num4:
+        elif num2 >= num3 and num2 <= num4:
+            print("num2 is ", num2)
+            total += 1
+        elif num3 >= num2 and num3 <= num1:
+            print("num3 is", num3)
+            total += 1
+        elif num4 >= num1 and num4 <= num2:
+            print("num4 is", num4)
             total += 1
 print(total)
