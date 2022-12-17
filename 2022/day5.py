@@ -26,12 +26,24 @@ with open('data5.1.txt') as file:
     print(Convert(str1))
 
     print(result)
+
+    for x in range(len(result)):
+        for y in range(len(result[x])):
+            print(result[x][y])
+            result[x][y] = Convert(result[x][y])
+
+    print(result)
     num1, num2, num3 = 6, 6, 5
-    print(result[5][0])
-    # for i in range(num1):
-    #     temp = result[num2-1].pop(0)
-    #     result[num3-1].append(temp)
+
+    # for i in range(num1-1, -1, -1):
+    #     print("num1 is", num1)
+    #     temp = result[num2-1][0].pop(i)
+    #     result[num3-1][0].insert(0, temp)
+    # print("thees the result")
+    # for x in range(len(result)):
+    #     print(result[x])
     # print(result)
+    # print(result[4][0][1])
 # PHCNBQWMDN backwards
 
     for line in file:
@@ -50,7 +62,14 @@ with open('data5.1.txt') as file:
                     elif x == len(line)-1:
                         num3 = int(line[x])
                         # print("num3 is", num3)
+            #JNRSCDWPP
             # move num1 from num2 to num3
             # where num1 is how many crates will be moved
             # num2 is which crate we are moving from
             # num3 is which crate we are moving them to
+            for i in range(num1-1, -1, -1):
+                temp = result[num2-1][0].pop(i)
+                result[num3-1][0].insert(0, temp)
+    print("thees the result")
+    for x in range(len(result)):
+        print(result[x])
