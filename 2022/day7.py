@@ -26,21 +26,24 @@ with open("data7.txt") as file:
     slashDir = []
     hash = {}
     stackDir = []
-    listFiles = "False"
+    listFiles = False
     for line in file:
 
-        # "listFile" keeps track of whether the contents of
+        # "listFiles" keeps track of whether the contents of
         #   "line" are part of the ls command or not
         if "$" in line:
             listFiles = False
         # if "line" is output of ls command
         #   then we add the contents to a list that's part of
         if listFiles == True:
-            if not hash[stackDir[-1]]:
+            print("stackdir[-1] is", stackDir[-1])
+            if "/" not in hash:
                 hash[stackDir[-1]] = [line]
             else:
-                hash[stackDir[-1]].append(line)
-            print("this is our hash list", hash[-1])
+                print("hash is", hash)
+                tempList = hash[stackDir[-1]]
+                tempList.append("hi")
+            print("this is our hash list", hash)
 
         # Below code for tracking directories
         if "$ cd .." in line:
